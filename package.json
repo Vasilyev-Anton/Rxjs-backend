@@ -1,7 +1,10 @@
 {
+  "name": "rxjs-backend",
+  "version": "1.0.0",
+  "main": "server.js",
   "scripts": {
     "prestart": "npm install",
-    "start": "forever server.js",
+    "start": "node server.js",
     "watch": "forever -w server.js"
   },
   "dependencies": {
