@@ -1,15 +1,13 @@
 // server.js
 const express = require('express');
 const cors = require('cors');
-const { Observable, interval } = require('rxjs');
-const { switchMap } = require('rxjs/operators');
 const { faker } = require('@faker-js/faker');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({origin: '*'}));
 
 app.get('/messages/unread', (req, res) => {
   const generateFakeMessage = () => ({
@@ -26,6 +24,4 @@ app.get('/messages/unread', (req, res) => {
   res.json(response);
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+app.listen(port, () => {});
