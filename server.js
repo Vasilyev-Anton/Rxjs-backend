@@ -1,7 +1,7 @@
 // server.js
 const express = require('express');
 const cors = require('cors');
-const faker = require('@faker-js/faker');
+const { faker } = require('@faker-js/faker');
 
 const app = express();
 const port = process.env.PORT || 3000;
