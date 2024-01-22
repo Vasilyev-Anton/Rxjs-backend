@@ -19,7 +19,6 @@ app.get('/messages/unread', (req, res) => {
   });
 
   const fakeMessages = Array.from({ length: 1 }, generateFakeMessage);
-  console.log(fakeMessages)
   const response = { status: 'ok', messages: fakeMessages };
   res.json(response);
 });
