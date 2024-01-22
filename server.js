@@ -1,13 +1,14 @@
 // server.js
 const express = require('express');
 const cors = require('cors');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const { faker } = require('@faker-js/faker');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors({origin: '*'}));
+app.use(cors({ origin: '*' }));
 
 app.get('/messages/unread', (req, res) => {
   const generateFakeMessage = () => ({
