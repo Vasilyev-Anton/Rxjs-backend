@@ -24,4 +24,6 @@ app.get('/messages/unread', (req, res) => {
   res.json(response);
 });
 
-app.listen(port, () => {});
+app.listen(port, () => {
+  console.log(port);
+});
