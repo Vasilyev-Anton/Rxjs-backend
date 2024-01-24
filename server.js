@@ -8,9 +8,11 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
-app.options('/messages/unread', cors());
-app.get('/', (req, res) => {
-  res.send('Привет, это ваш корневой путь!');
+app.options('/messages/unread', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.status(200).send();
 });
 app.get('/messages/unread', (req, res) => {
   const generateFakeMessage = () => ({
