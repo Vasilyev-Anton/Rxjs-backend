@@ -9,6 +9,9 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 app.options('/messages/unread', cors());
+app.get('/', (req, res) => {
+  res.send('Привет, это ваш корневой путь!');
+});
 app.get('/messages/unread', (req, res) => {
   const generateFakeMessage = () => ({
     id: faker.string.uuid(),
@@ -16,9 +19,6 @@ app.get('/messages/unread', (req, res) => {
     subject: faker.lorem.words(3),
     body: faker.lorem.paragraph(),
     received: Math.floor(Date.now() / 1000),
-  });
-  app.get('/', (req, res) => {
-    res.send('Привет, это ваш корневой путь!');
   });
 
   const fakeMessages = Array.from({ length: 1 }, generateFakeMessage);
