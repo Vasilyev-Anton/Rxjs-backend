@@ -17,6 +17,9 @@ app.get('/messages/unread', (req, res) => {
     body: faker.lorem.paragraph(),
     received: Math.floor(Date.now() / 1000),
   });
+  app.get('/', (req, res) => {
+    res.send('Привет, это ваш корневой путь!');
+  });
 
   const fakeMessages = Array.from({ length: 1 }, generateFakeMessage);
   console.log(fakeMessages)
