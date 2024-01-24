@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
-
+app.options('/messages/unread', cors());
 app.get('/messages/unread', (req, res) => {
   const generateFakeMessage = () => ({
     id: faker.string.uuid(),
