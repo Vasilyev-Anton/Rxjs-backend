@@ -7,7 +7,12 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-
+app.options('/messages/unread', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.status(200).send();
+});
 app.get('/messages/unread', (req, res) => {
   const generateFakeMessage = () => ({
     id: faker.string.uuid(),
